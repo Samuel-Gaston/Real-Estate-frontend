@@ -227,41 +227,41 @@ const navigate = useNavigate();
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="text-white text-sm uppercase bg-gray-950" >
-              <th className="py-3 px-6 text-left font-semibold" style={{padding:10}}>
-                <div className="flex items-center gap-2">
+            <tr className="text-white text-sm uppercase bg-gray-950" style={{width:250, textAlign:'center'}} >
+              <th className="py-3 px-6 text-left font-semibold" style={{padding:10, width:250}}>
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaPosition />  */}
-                 Name
+                 <p style={{width:250, textAlign:'center'}}>name</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                 type
+                 <p style={{width:250, textAlign:'center'}}>type</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                  status
+                  <p style={{width:250, textAlign:'center'}}>status</p>
                 </div>
               </th>
                  <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                 Department
+                 <p style={{width:250, textAlign:'center'}}>department</p>
                 </div>
               </th>
                   <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                 Description
+                 <p style={{width:250, textAlign:'center'}}>description</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                  Action
+                  <p style={{width:250, textAlign:'center'}}>action</p>
                 </div>
              </th>
             </tr>
@@ -271,12 +271,12 @@ const navigate = useNavigate();
             <tbody>
       {Array.isArray(Positions) && Positions.map((user, index) => (
         <tr key={user._id} className={`${ index % 2 === 0 ? "bg-gray-50" : "bg-white" } hover:bg-gray-300 transition-all duration-200`}>
-          <td style={{ padding: 10 }} className="py-3 px-6 text-gray-700">{user.name}</td>
-          <td style={{ padding: 10 }} className="py-3 px-6 text-gray-700">{user.type}</td>
-          <td style={{ padding: 10 }} className="py-3 px-6 text-gray-700">{user.status}</td>
-        <td style={{ padding: 10 }} className="py-3 px-6 text-gray-700">{user.department?.name || '-'}</td>
-          <td style={{ padding: 10 }} className="py-3 px-6 text-gray-700">{user.description}</td>
-          <td style={{ padding: 10 }} className="py-3 px-6 text-gray-700">
+          <td style={{ padding: 10, textAlign:'center' }} className="py-3 px-6 text-gray-700">{user.name}</td>
+          <td style={{ padding: 10, textAlign:'center' }} className="py-3 px-6 text-gray-700">{user.type}</td>
+          <td style={{ padding: 10, textAlign:'center' }} className="py-3 px-6 text-gray-700">{user.status}</td>
+        <td style={{ padding: 10, textAlign:'center' }} className="py-3 px-6 text-gray-700">{user.department?.name || '-'}</td>
+          <td style={{ padding: 10, textAlign:'center' }} className="py-3 px-6 text-gray-700">{user.description}</td>
+          <td style={{ padding: 10, textAlign:'center' }} className="py-3 px-6 text-gray-700">
             <FaEdit style={{cursor:'pointer'}} className='inline' size={20} onClick={() => OpenUpdateModal(user)} />
             <FaTrash style={{cursor:'pointer', marginLeft:10}} className='inline' onClick={() => {
              setSelectedUserId(user._id)

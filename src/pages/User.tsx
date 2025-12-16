@@ -193,28 +193,28 @@ const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
         <table className="w-full border-collapse">
           <thead>
             <tr className="text-white text-sm uppercase bg-gray-950" >
-              <th className="py-3 px-6 text-left font-semibold" style={{padding:10}}>
-                <div className="flex items-center gap-2">
+              <th className="py-3 px-6 text-left font-semibold" style={{padding:10, width:200}}>
+                <div className="Table flex items-center gap-2" style={{width:200, textAlign:'center'}}>
                   {/* <FaUser />  */}
-                  Username
+                  <p style={{width:200, textAlign:'center'}}>Username</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:200, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                  Email
+                  <p style={{width:200, textAlign:'center'}}>email</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:200, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                  Password
+                 <p style={{width:200, textAlign:'center'}}>password</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:200, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                  Action
+                  <p style={{width:200, textAlign:'center'}}>action</p>
                 </div>
              </th>
             </tr>
@@ -224,10 +224,10 @@ const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
 
   {Array.isArray(Users) && Users.map((user, index) => (
     <tr key={user._id} className={`${ index % 2 === 0 ? "bg-gray-50" : "bg-white" } hover:bg-gray-300 transition-all duration-200`}>
-      <td style={{ padding: 10 }} className="py-3 px-6 text-gray-700">{user.name}</td>
-      <td style={{ padding: 10 }} className="py-3 px-6 text-gray-700">{user.email}</td>
-      <td style={{ padding: 10 }} className="py-3 px-6 text-gray-700">{user.password}</td>
-      <td style={{ padding: 10 }} className="py-3 px-6 text-gray-700">
+      <td style={{ padding: 10, textAlign:'center' }} className="py-3 px-6 text-gray-700">{user.name}</td>
+      <td style={{ padding: 10, textAlign:'center' }} className="py-3 px-6 text-gray-700">{user.email}</td>
+      <td style={{ padding: 10, textAlign:'center' }} className="py-3 px-6 text-gray-700">{user.password}</td>
+      <td style={{ padding: 10, textAlign:'center' }} className="py-3 px-6 text-gray-700">
         {/* <FaEdit style={{cursor:'pointer'}} className='inline' size={20} onClick={() => handleEdit(user)}/> */}
         <FaTrash style={{cursor:'pointer', marginLeft:10}} className='inline' onClick={() => {
          setSelectedUserId(user._id)

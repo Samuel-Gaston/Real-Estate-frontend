@@ -270,6 +270,7 @@ label{
     transition: 0.5s all ease-in-out;
 }
 
+
 @media only screen and (max-width:764px) {
     .Nav{
         width: calc(100%);

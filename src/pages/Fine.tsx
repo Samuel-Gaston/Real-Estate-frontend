@@ -244,35 +244,35 @@ const Fine = () => {
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="text-white text-sm uppercase bg-gray-950" >
-              <th className="py-3 px-6 text-left font-semibold" style={{padding:10}}>
-                <div className="flex items-center gap-2">
+            <tr className="text-white text-sm uppercase bg-gray-950"style={{width:250, textAlign:'center'}} >
+              <th className="py-3 px-6 text-left font-semibold" style={{padding:10, width:250}}>
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaFine />  */}
-                 Name
+                 <p style={{width:250, textAlign:'center'}}>name</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                Date
+                <p style={{width:250, textAlign:'center'}}>date</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                 Fine-Type
+                <p style={{width:250, textAlign:'center'}}>fine-type</p>
                 </div>
               </th>
                <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                 Description
+                 <p style={{width:250, textAlign:'center'}}>description</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" style={{width:250, textAlign:'center'}}>
                   {/* <FaBox />  */}
-                  Action
+                  <p style={{width:250, textAlign:'center'}}>action</p>
                 </div>
              </th>
             </tr>
@@ -281,11 +281,11 @@ const Fine = () => {
           <tbody>
             {Array.isArray(Fines) && Fines.map((c, index) => (
               <tr key={c._id} className={`${ index % 2 === 0 ? "bg-gray-50" : "bg-white" } hover:bg-gray-300 transition-all duration-200`} >
-                <td  style={{padding:10}}  className="py-3 px-6 text-gray-700">{c.name}</td>
-                <td  style={{padding:10}}  className="py-3 px-6 text-gray-700">{formatDate(c.date)}</td>
-                   <td  style={{padding:10}}  className="py-3 px-6 text-gray-700">{c.fineType.name}</td>
-                  <td  style={{padding:10}}  className="py-3 px-6 text-gray-700">{c.description}</td>
-                <td  style={{padding:10}}  className="py-3 px-6 text-gray-700">
+                <td  style={{padding:10, textAlign:'center'}}  className="py-3 px-6 text-gray-700">{c.name}</td>
+                <td  style={{padding:10, textAlign:'center'}}  className="py-3 px-6 text-gray-700">{formatDate(c.date)}</td>
+                   <td  style={{padding:10, textAlign:'center'}}  className="py-3 px-6 text-gray-700">{c.fineType.name}</td>
+                  <td  style={{padding:10, textAlign:'center'}}  className="py-3 px-6 text-gray-700">{c.description}</td>
+                <td  style={{padding:10, textAlign:'center'}}  className="py-3 px-6 text-gray-700">
                   <FaEdit style={{cursor:'pointer', marginLeft:10}} className='inline' size={20} onClick={() => OpenUpdateModal(c)} />
                   <FaTrash style={{cursor:'pointer', marginLeft:10}} className='inline' onClick={() => {
                               setSelectedUserId(c._id)

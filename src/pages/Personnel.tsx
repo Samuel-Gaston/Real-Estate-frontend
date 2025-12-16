@@ -288,92 +288,92 @@ const Personnel = () => {
 <br />
 <br />
     
-      <div className="overflow-x-auto">
+      <div className="Table overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
             <tr className="text-white text-sm uppercase bg-gray-950" >
-              <th className="py-3 px-6 text-left font-semibold" style={{padding:10}}>
-                <div className="flex items-center gap-2" style={{marginLeft:10}}>
+              <th className="py-3 px-6 text-left font-semibold" style={{padding:10, width:200}}>
+                <div className="flex items-center gap-2" style={{ width:200,}}>
                   {/* <FaPersonnel />  */}
-                Name
+               <p style={{width:300, textAlign:'center'}}> Name</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-               Gender
+               <p style={{width:300, textAlign:'center'}}>Gender</p>
                 </div>
               </th>
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-                Email
+              <p style={{width:300, textAlign:'center'}}>Email</p>
                 </div>
               </th>
                 <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-                Phone
+                <p style={{width:300, textAlign:'center'}}>phone</p>
                 </div>
               </th>
                 <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-                Salary
+                <p style={{width:300, textAlign:'center'}}>salary</p>
                 </div>
               </th>
                 <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-                 maritalStatus
+                 <p style={{width:300, textAlign:'center'}}>maritalStatus</p>
                 </div>
               </th>
                 <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-                childStatus
+                <p style={{width:300, textAlign:'center'}}>childStatus</p>
                 </div>
               </th>
                <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-                isDrivingLicense
+                <p style={{width:300, textAlign:'center'}}>isDrivingLicense</p>
                 </div>
               </th>
                <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-                recrutementDate
+                <p style={{width:300, textAlign:'center'}}>recrutementDate</p>
                 </div>
               </th>
                <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-                emergencyContact
+                <p style={{width:300, textAlign:'center'}}>emergencyContact</p>
                 </div>
               </th>
                <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-               employmentStatus
+               <p style={{width:300, textAlign:'center'}}>employmentStatus</p>
                 </div>
               </th>
                  <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-                position
+                <p style={{width:300, textAlign:'center'}}>position</p>
                 </div>
               </th>   
                  <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-               cnps
+               <p style={{width:300, textAlign:'center'}}>cnps</p>
                 </div>
               </th>        
               <th className="py-3 px-6 text-left font-semibold">
-                <div className="flex items-center gap-2" style={{marginLeft:30}}>
+                <div className="flex items-center gap-2" style={{width:200,}}>
                   {/* <FaBox />  */}
-                  Action
+                  <p style={{width:300, textAlign:'center'}}>action</p>
                 </div>
              </th>
             </tr>
