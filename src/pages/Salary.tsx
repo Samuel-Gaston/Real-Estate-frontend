@@ -81,12 +81,19 @@ const Salary = () => {
                  setShowModal(false);
                  navigate("/salary");
                  getSalaries();
-        }).catch((error) => console.error(error));
+        }).catch((error) => {
+              Swal.fire({
+                            title:'Error!',
+                            text: error.response.data.msg,
+                            icon:'error',
+                            confirmButtonText:'OK',
+                            confirmButtonColor:'var(--color-gray-950)'
+                              })
+        });
       }
     }
 
     
-          //getting ValidatedBY
       const getValidatedBy = async() =>{
      try {
       const response = await axios.get("http://localhost:5000/salary/personnel");
@@ -105,7 +112,7 @@ const Salary = () => {
       setselectedValidatedBy(e.target.value);
     }
 
-     // getting contractTypes
+  
      const getContract = async() =>{
       try {
        const response = await axios.get("http://localhost:5000/salary/contract");
@@ -124,7 +131,7 @@ const Salary = () => {
        setselectedContract(e.target.value);
      }
 
-           //getting personnels
+       
       const getPersonnel = async() =>{
      try {
       const response = await axios.get("http://localhost:5000/salary/personnel");
@@ -362,7 +369,6 @@ const Salary = () => {
       </div>
 
 
-      {/* Modal for add*/}
       {showModal && (
         <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(70% - 20px)', borderRadius:20, boxShadow:'0 0 20px'}}>
@@ -511,7 +517,7 @@ const Salary = () => {
         </div>
       )}
 
-{/* modal for export feature */}
+
     {showExportModal &&(
           <div className="Export fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -542,7 +548,7 @@ const Salary = () => {
     )}
 
 
-           {/* the modal for delete */}
+        
     {deleteModal &&(
              <div className="Export fixed inset-0 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -576,7 +582,7 @@ const Salary = () => {
         </div>
     )}
 
-          {/* Modal for add*/}
+        
       {updateModal && (
         <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(70% - 20px)', borderRadius:20, boxShadow:'0 0 20px'}}>

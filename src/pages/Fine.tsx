@@ -61,7 +61,15 @@ const Fine = () => {
                  setShowModal(false);
                  navigate("/fine");
                  getFines();
-        }).catch((error) => console.error(error));
+        }).catch((error) => {
+              Swal.fire({
+                            title:'Error!',
+                            text: error.response.data.msg,
+                            icon:'error',
+                            confirmButtonText:'OK',
+                            confirmButtonColor:'var(--color-gray-950)'
+                              })
+        });
       }
     }
 
@@ -83,7 +91,7 @@ const Fine = () => {
       setselectedFineType(e.target.value);
     }
 
-    // getting fines
+
     const getFines = async() =>{
    try {
        const response = await axios.get("/fine")
@@ -298,7 +306,7 @@ const Fine = () => {
         </table>
       </div>
 
-      {/* Modal for add*/}
+   
       {showModal && (
         <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20, boxShadow:'0 0 20px'}}>
@@ -382,7 +390,7 @@ const Fine = () => {
         </div>
       )}
 
-{/* modal for export feature */}
+
     {showExportModal &&(
           <div className="Export fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -413,7 +421,6 @@ const Fine = () => {
     )}
 
 
-                {/* the modal for delete */}
     {deleteModal &&(
              <div className="Export fixed inset-0 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -448,7 +455,7 @@ const Fine = () => {
     )}
 
 
-      {/* Modal for add*/}
+   
       {updateModal && (
         <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20, boxShadow:'0 0 20px'}}>

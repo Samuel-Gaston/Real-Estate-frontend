@@ -244,7 +244,7 @@ const CNPS = () => {
         </table>
       </div>
 
-      {/* Modal for add*/}
+     
       {showModal && (
         <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20, boxShadow:'0 0 20px'}}>
@@ -304,7 +304,7 @@ const CNPS = () => {
         </div>
       )}
 
-{/* modal for export feature */}
+
     {showExportModal &&(
           <div className="Export fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -335,7 +335,7 @@ const CNPS = () => {
     )}
 
 
-      {/* the modal for delete */}
+ 
     {deleteModal &&(
              <div className="Export fixed inset-0 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -369,7 +369,7 @@ const CNPS = () => {
         </div>
     )}
 
-          {/* Modal for add*/}
+    
       {updateModal && (
         <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20, boxShadow:'0 0 20px'}}>

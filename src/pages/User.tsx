@@ -43,10 +43,10 @@ const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
         })
       }
       else{
-        axios.post("/user", Register).then(() =>{
+        axios.post("/user", Register).then((res) =>{
        Swal.fire({
       title: 'User registered successful!',
-      text: 'You have successfully added this user.',
+      text: res.data.msg,
       icon: 'success',
       confirmButtonText: 'OK',
         confirmButtonColor:'var(--color-gray-950)'
@@ -54,7 +54,15 @@ const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
          setShowModal(false);
          navigate("/user");
        getUsers();
-        }).catch((error) => console.error("error", error));
+        }).catch((error) => {
+          Swal.fire({
+        title:'Error!',
+        text: error.response.data.msg,
+        icon:'error',
+        confirmButtonText:'OK',
+        confirmButtonColor:'var(--color-gray-950)'
+          })
+        });
       }
      }
 
@@ -140,7 +148,6 @@ const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
   fetchUsers();
 }, [search]);
  
-
 
 
   return (
@@ -240,7 +247,7 @@ const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
         </table>
       </div>
 
-      {/* Modal for add*/}
+ 
       {showModal && (
         <div className="Add fixed inset-0  flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20, boxShadow:'0 0 20px'}}>
@@ -299,7 +306,6 @@ const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
         </div>
       )}
 
-{/* modal for export feature */}
     {showExportModal &&(
           <div className="Export fixed inset-0 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -330,7 +336,7 @@ const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
     )}
 
 
-    {/* the modal for delete */}
+
     {deleteModal &&(
              <div className="Export fixed inset-0 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -364,56 +370,6 @@ const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
         </div>
     )}
 
-
-    {/* {showModal &&(
-      <div>
-        <input
-  type="text"
-  name="name"
-  value={Register.name}
-  onChange={HandleData}
-  placeholder="Enter name"
-  style={{ padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center' }}
-/>
-
-<input
-  type="text"
-  name="email"
-  value={Register.email}
-  onChange={HandleData}
-  placeholder="Enter email"
-  style={{ padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center' }}
-/>
-
-<input
-  type="text"
-  name="password"
-  value={Register.password}
-  onChange={HandleData}
-  placeholder="Enter password"
-  style={{ padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center' }}
-/>
-
-<button
-  onClick={() => updateUser}
-  style={{
-    backgroundColor: 'white',
-    cursor: 'pointer',
-    marginLeft: 10,
-    padding: 5,
-    marginBottom: 50,
-    marginTop: 20,
-    width: 'calc(40% - 20px)',
-    borderRadius: 10,
-    color: 'black',
-  }}
->
-  Submit
-</button>
-
-
-      </div>
-    )} */}
     </div>
 
     </div>

@@ -90,7 +90,15 @@ const Personnel = () => {
                  navigate("/personnel");
                  getPersonnels();
                  console.log(res.data.data);
-        }).catch((error) => console.error(error));
+        }).catch((error) => {
+              Swal.fire({
+                            title:'Error!',
+                            text: error.response.data.msg,
+                            icon:'error',
+                            confirmButtonText:'OK',
+                            confirmButtonColor:'var(--color-gray-950)'
+                              })
+        });
       }
     }
 
@@ -408,230 +416,7 @@ const Personnel = () => {
         </table>
       </div>
 
-      {/* Modal for add*/}
-      {/* {showModal && (
-        <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
-          <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20, boxShadow:'0 0 20px'}}>
-            <h3 className="text-center" style={{marginTop:20, marginBottom:20}}>Add New Personnel</h3>
 
-              <input
-                type="text"
-                placeholder="Enter Name"
-                value={name}
-                onChange={(e) => setname(e.target.value)}
-                style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                required
-              />
-<br />
-<br />
-              <input
-                type="text"
-                placeholder="Enter gender"
-                value={gender}
-                onChange={(e) => setgender(e.target.value)}
-               style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                 required
-              />
-              <br />
-              <br />
-                <input
-                type="text"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setemail(e.target.value)}
-               style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                 required
-              />
-              <br />
-              <br />
-                 <input
-                type="text"
-                placeholder="Enter phone"
-                value={phone}
-                onChange={(e) => setphone(e.target.value)}
-               style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                 required
-              />
-              <br />
-              <br />
-                 <input
-                type="text"
-                placeholder="Enter salary"
-                value={salary}
-                onChange={(e) => setsalary(e.target.value)}
-               style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                 required
-              />
-                   <br />
-              <br />
-               <select
-          value={maritalStatus}
-          onChange={(e) => setmaritalStatus(e.target.value)}
-          style={{
-            padding: 5,
-            borderRadius: 10,
-            textAlign: 'center',
-            backgroundColor: 'var(--color-gray-950)',
-            color: 'white',
-            cursor: 'pointer',width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50,
-          }}
-        >
-          <option value="">maritalStatus ?</option>
-          <option value="single">single</option>
-          <option value="married">married</option>
-          <option value="divorced">divorced</option>
-          <option value="widowed">widowed</option>
-        </select>
-             <br />
-              <br />
-               <select
-          value={childStatus}
-          onChange={(e) => setchildStatus(e.target.value)}
-          style={{
-            padding: 5,
-            borderRadius: 10,
-            textAlign: 'center',
-            backgroundColor: 'var(--color-gray-950)',
-            color: 'white',
-            cursor: 'pointer',width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50,
-          }}
-        >
-          <option value="">childStatus ?</option>
-          <option value="has_child">has_child</option>
-          <option value="no_child">no_child</option>
-        </select>
-              <br />
-              <br />
-               <select
-          value={isDrivingLicense}
-          onChange={(e) => setisDrivingLicense(e.target.value)}
-          style={{
-            padding: 5,
-            borderRadius: 10,
-            textAlign: 'center',
-            backgroundColor: 'var(--color-gray-950)',
-            color: 'white',
-            cursor: 'pointer',width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50,
-          }}
-        >
-          <option value="">isDrivingLicense ?</option>
-          <option value="false">false</option>
-          <option value="true">true</option>
-        </select>
-        <br />
-        <br />
-                 <input
-                type="date"
-                placeholder="Enter recrutementDate"
-                value={recrutementDate}
-                onChange={(e) => setrecrutementDate(e.target.value)}
-               style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                 required
-              />
-              <br />
-              <br />
-                   <select
-          value={selectedCNPS}
-          onChange={handleCNPSChange}
-          style={{
-            padding: 5,
-            width: 'calc(77% - 20px)',
-            border: '1px solid white',
-            borderRadius: 10,
-            textAlign: 'center',
-            backgroundColor: 'var(--color-gray-950)',
-            color: 'white',
-            cursor: 'pointer',marginLeft:50,
-          }}
-        >
-          <option value="">Select CNPS</option>
-          {Array.isArray(cnps) &&
-            cnps.map((d) => (
-              <option key={d._id} value={d._id}>
-                {d.name}
-              </option>
-            ))}
-        </select>
-              <br />
-              <br />
-                   <select
-          value={selectedPosition}
-          onChange={handlePositionChange}
-          style={{
-            padding: 5,
-            width: 'calc(77% - 20px)',
-            border: '1px solid white',
-            borderRadius: 10,
-            textAlign: 'center',
-            backgroundColor: 'var(--color-gray-950)',
-            color: 'white',
-            cursor: 'pointer',marginLeft:50,
-          }}
-        >
-          <option value="">Select Position</option>
-          {Array.isArray(position) &&
-            position.map((d) => (
-              <option key={d._id} value={d._id}>
-                {d.name}
-              </option>
-            ))}
-        </select>
-              <br />
-              <br />
-                 <input
-                type="text"
-                placeholder="Enter emergencyContact"
-                value={emergencyContact}
-                onChange={(e) => setemergencyContact(e.target.value)}
-               style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                 required
-              />
-                <br />
-              <br />
-               <select
-          value={employmentStatus}
-          onChange={(e) => setemploymentStatus(e.target.value)}
-          style={{
-            padding: 5,
-            borderRadius: 10,
-            textAlign: 'center',
-            backgroundColor: 'var(--color-gray-950)',
-            color: 'white',
-            cursor: 'pointer',width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50,
-          }}
-        >
-          <option value="">employmentStatus ?</option>
-          <option value="Active">Active</option>
-          <option value="Terminated">Terminated</option>
-          <option value="On_Leave">On_Leave</option>
-          <option value="Retired">Retired</option>
-        </select>
-              <br />
-              <br />
-                <button  type="button" onClick={() => setShowModal(false)} style={{
-                    backgroundColor:'orange',
-                    marginLeft:50,
-                    padding:5,
-                    marginBottom:20,
-                    width:'calc(40% - 20px)',
-                    cursor:'pointer',
-                    borderRadius:10, color:'black'
-                }}>Cancel</button>
-                <button onClick={Add} style={{
-                      backgroundColor:'white',
-                      cursor:'pointer',
-                    marginLeft:10,
-                    padding:5,
-                    marginBottom:50,
-                    marginTop:20,
-                    width:'calc(40% - 20px)',
-                    borderRadius:10, color:'black'
-                }}>Add</button>
-
-          </div>
-        </div>
-      )} */}
-      {/* Modal for add*/}
 {showModal && (
   <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50">
     <div
@@ -768,7 +553,7 @@ const Personnel = () => {
 )}
 
 
-{/* modal for export feature */}
+
     {showExportModal &&(
           <div className="Export fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -798,7 +583,7 @@ const Personnel = () => {
         </div>
     )}
 
-    {/* the modal for delete */}
+  
     {deleteModal &&(
              <div className="Export fixed inset-0 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -833,7 +618,7 @@ const Personnel = () => {
     )}
 
 
-          {/* Modal for add*/}
+        
 {updateModal && (
   <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50">
     <div

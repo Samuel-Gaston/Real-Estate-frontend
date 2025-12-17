@@ -94,11 +94,19 @@ const [selectedPosition, setselectedPosition] = useState('')
                  setShowModal(false);
                  navigate("/contract");
                  getContracts();
-        }).catch((error) => console.error(error));
+        }).catch((error) => {
+              Swal.fire({
+                            title:'Error!',
+                            text: error.response.data.msg,
+                            icon:'error',
+                            confirmButtonText:'OK',
+                            confirmButtonColor:'var(--color-gray-950)'
+                              })
+        });
       }
     }
 
-    // getting contractTypes
+
     const getContractType = async() =>{
      try {
       const response = await axios.get("http://localhost:5000/contract/contractType");
@@ -119,7 +127,6 @@ const [selectedPosition, setselectedPosition] = useState('')
 
 
 
-    //getting position
       const getPosition = async() =>{
      try {
       const response = await axios.get("http://localhost:5000/contract/position");
@@ -140,7 +147,7 @@ const [selectedPosition, setselectedPosition] = useState('')
 
     
 
-       //getting personnels
+     
       const getPersonnel = async() =>{
      try {
       const response = await axios.get("http://localhost:5000/contract/personnel");
@@ -161,7 +168,7 @@ const [selectedPosition, setselectedPosition] = useState('')
 
 
 
-    // getting contracts
+ 
     const getContracts = async() =>{
    try {
        const response = await axios.get("http://localhost:5000/contract")
@@ -389,194 +396,7 @@ const [selectedPosition, setselectedPosition] = useState('')
         </table>
       </div>
 
-      {/* Modal for add*/}
-      {/* {showModal && (
-        <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
-          <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20}}>
-            <h3 className="text-center" style={{marginTop:20, marginBottom:20}}>Add New Contract</h3>
 
-              <input
-                type="number"
-                placeholder="Enter salary"
-                value={salary}
-                onChange={(e) => setsalary(e.target.value)}
-                style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                required
-              />
-<br />
-<br />
-   <select
-  value={selectedContractType}
-  onChange={handleContractTypeChange}
-  style={{
-    padding: 5,
-    width: 'calc(77% - 20px)',
-    border: '1px solid white',
-    marginLeft: 50,
-    borderRadius: 10,
-    textAlign: 'center',
-  backgroundColor:'var(--color-gray-950)', color:'white', cursor:'pointer'
-  }}
->
-  <option value="">Select Contract-Type</option>
-
-  {Array.isArray(contractType) &&
-    contractType.map((d) => (
-      <option key={d._id} value={d._id}>
-        {d.name}
-      </option>
-    ))}
-</select>
-
-              <br />
-              <br />
-   <select
-  value={selectedPersonnel}
-  onChange={handlePersonnelChange}
-  style={{
-    padding: 5,
-    width: 'calc(77% - 20px)',
-    border: '1px solid white',
-    marginLeft: 50,
-    borderRadius: 10,
-    textAlign: 'center',
-  backgroundColor:'var(--color-gray-950)', color:'white', cursor:'pointer'
-  }}
->
-  <option value="">Select Personnel</option>
-
-  {Array.isArray(personnel) &&
-  personnel.map((d) => (
-      <option key={d._id} value={d._id}>
-        {d.name}
-      </option>
-    ))}
-</select>
-
-              <br />
-              <br />
-               <input
-                type="date"
-                placeholder="Enter startDate"
-                value={startDate}
-                onChange={(e) => setstartDate(e.target.value)}
-               style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                 required
-              />
-              <br />
-              <br />
-               <input
-                type="date"
-                placeholder="Enter endDate"
-                value={endDate}
-                onChange={(e) => setendDate(e.target.value)}
-               style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                 required
-              />
-              <br />
-              <br />
-    <select
-  value={selectedValidatedBy}
-  onChange={handleValidatedBYChange}
-  style={{
-    padding: 5,
-    width: 'calc(77% - 20px)',
-    border: '1px solid white',
-    marginLeft: 50,
-    borderRadius: 10,
-    textAlign: 'center',
-  backgroundColor:'var(--color-gray-950)', color:'white', cursor:'pointer'
-  }}
->
-  <option value="">Select ValidatedBy</option>
-
-  {Array.isArray(validatedBy) &&
-    validatedBy.map((d) => (
-      <option key={d._id} value={d._id}>
-        {d.name}
-      </option>
-    ))}
-</select>
-              <br />
-              <br />
-   <select
-  value={selectedPosition}
-  onChange={handlePositionChange}
-  style={{
-    padding: 5,
-    width: 'calc(77% - 20px)',
-    border: '1px solid white',
-    marginLeft: 50,
-    borderRadius: 10,
-    textAlign: 'center',
-  backgroundColor:'var(--color-gray-950)', color:'white', cursor:'pointer'
-  }}
->
-  <option value="">Select Position</option>
-
-  {Array.isArray(position) &&
-    position.map((d) => (
-      <option key={d._id} value={d._id}>
-        {d.name}
-      </option>
-    ))}
-</select>
-<br />
-<br />
-   <select
-  value='isValidated'
-  onChange={(e) => setisValidated(e.target.value)}
-  style={{
-    padding: 5,
-    width: 'calc(77% - 20px)',
-    border: '1px solid white',
-    marginLeft: 50,
-    borderRadius: 10,
-    textAlign: 'center',
-  backgroundColor:'var(--color-gray-950)', color:'white', cursor:'pointer'
-  }}
->
-  <option value="">isValidated ?</option>
-  <option value='false'>false</option>
-    <option value='true'>true</option>
-</select>
-              <br />
-              <br />
-               <input
-                type="text"
-                placeholder="Enter description"
-                value={description}
-                onChange={(e) => setdescription(e.target.value)}
-               style={{padding:5, width:'calc(77% - 20px)', border:'1px solid white', marginLeft:50, borderRadius:10, textAlign:'center'}}
-                 required
-              />
-              <br />
-              <br />
-                <button  type="button" onClick={() => setShowModal(false)} style={{
-                    backgroundColor:'orange',
-                    marginLeft:50,
-                    padding:5,
-                    marginBottom:20,
-                    width:'calc(40% - 20px)',
-                    cursor:'pointer',
-                    borderRadius:10, color:'black'
-                }}>Cancel</button>
-                <button onClick={Add} style={{
-                      backgroundColor:'white',
-                      cursor:'pointer',
-                    marginLeft:10,
-                    padding:5,
-                    marginBottom:50,
-                    marginTop:20,
-                    width:'calc(40% - 20px)',
-                    borderRadius:10, color:'black'
-                }}>Add</button>
-
-          </div>
-        </div>
-      )} */}
-
-      {/* Modal for add */}
 {showModal && (
   <div className="Add fixed inset-0 bg-black/50  flex items-center justify-center z-50 p-4 border-white">
     <div
@@ -777,7 +597,7 @@ const [selectedPosition, setselectedPosition] = useState('')
 )}
 
 
-{/* modal for export feature */}
+
     {showExportModal &&(
           <div className="Export fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -808,7 +628,6 @@ const [selectedPosition, setselectedPosition] = useState('')
     )}
 
 
-                    {/* the modal for delete */}
     {deleteModal &&(
              <div className="Export fixed inset-0 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -842,7 +661,6 @@ const [selectedPosition, setselectedPosition] = useState('')
         </div>
     )}
 
-            {/* Modal for update */}
 {updateModal && (
   <div className="Add fixed inset-0 bg-black/50  flex items-center justify-center z-50 p-4 border-white">
     <div

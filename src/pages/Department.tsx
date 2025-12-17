@@ -46,7 +46,15 @@ const Department = () => {
                  setShowModal(false);
                  navigate("/department");
                  getDepartments();
-        }).catch((error) => console.error(error));
+        }).catch((error) => {
+              Swal.fire({
+                            title:'Error!',
+                            text: error.response.data.msg,
+                            icon:'error',
+                            confirmButtonText:'OK',
+                            confirmButtonColor:'var(--color-gray-950)'
+                              })
+        });
       }
     }
 
@@ -233,7 +241,7 @@ const Department = () => {
         </table>
       </div>
 
-      {/* Modal for add*/}
+    
       {showModal && (
         <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20, boxShadow:'0 0 20px'}}>
@@ -283,7 +291,7 @@ const Department = () => {
         </div>
       )}
 
-{/* modal for export feature */}
+
     {showExportModal &&(
           <div className="Export fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -313,7 +321,7 @@ const Department = () => {
         </div>
     )}
 
-         {/* the modal for delete */}
+      
     {deleteModal &&(
              <div className="Export fixed inset-0 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20,boxShadow:'0 0 20px'}}>
@@ -347,7 +355,7 @@ const Department = () => {
         </div>
     )}
 
-    {/* the update modal */}
+  
           {updateModal && (
         <div className="Add fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="relative bg-gray-950" style={{width:'calc(40% - 20px)', borderRadius:20, boxShadow:'0 0 20px'}}>

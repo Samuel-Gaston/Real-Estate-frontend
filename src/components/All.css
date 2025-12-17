@@ -6,7 +6,9 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 .no-scrollbar {
   -ms-overflow-style: none;  
   scrollbar-width: none;    
@@ -26,6 +28,12 @@ body{
 .Nav{
     width: calc(100%);
     display: flex;
+    top: 0;
+        z-index: 1000; 
+}
+
+.Nav a {
+    color: white;
 }
 .logo{
     margin-left: 100px;
@@ -118,7 +126,7 @@ body{
 
 }
 .footer p{
-    padding: 15px;
+    padding: 30px;
     text-align: center;
 }
 
@@ -166,14 +174,14 @@ body{
     box-shadow: 0 0 20px;
 }
 .login input:hover{
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   box-shadow: 0 0 20px;
 }
 .login:hover{
-   border: 2px solid orange;
-   border-radius: 0px;
+   /* border: 2px solid orange; */
+   border-radius: 20px;
    transition: 0.5s all ease-out;
-   box-shadow: 0 0 25px;
+   box-shadow: 0 0 30px;
 }
 
 .dashboard{
@@ -271,8 +279,8 @@ label{
 }
 
 
-@media only screen and (max-width:764px) {
-    .Nav{
+@media only screen and (max-width:768px) {
+    /* .Nav{
         width: calc(100%);
     }
     .logo{
@@ -283,7 +291,52 @@ label{
     }
     .Nav button{
         margin-left: 20px;
-    }
+    } */
+       .Nav {
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .Nav ul {
+    margin: 0;
+  }
+
+  .Nav ul li {
+    display: block;
+    padding: 15px 0;
+  }
+
+  .button {
+    margin-top: 10px;
+  }
+
+  .button button {
+    margin: 0;
+  }
 
     .login{
         width: calc(60% - 20px);

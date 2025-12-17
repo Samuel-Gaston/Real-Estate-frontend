@@ -9,6 +9,10 @@ const Login = () => {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
 
+  const GoToForgotPassword = () =>{
+    navigate("/forgot-password");
+  }
+
 
   const HandleSubmit = () =>{
     if(!email || !password){
@@ -60,14 +64,15 @@ Swal.fire({
         <div className='flex flex-wrap justify-center'>
             <input type='password' placeholder='password...' onChange={(e) => setpassword(e.target.value)} />
         </div>
-          <br />
-    <div className='flex flex-wrap justify-center'>
+        
+    <div className='flex flex-wrap justify-center' style={{marginTop:10}}>
       <button onClick={HandleSubmit}>Submit</button>
       </div>
-    <p style={{fontSize:14}}>Forgot Password ? <a style={{color:'orange'}} href=''>Click here</a></p>
+    <p style={{fontSize:14}}>Forgot Password ? <a onClick={GoToForgotPassword} style={{color:'orange', cursor:'pointer'}}>Click here</a></p>
      <br />
       </div>
       </div>
+      
     </div>
   )
 }

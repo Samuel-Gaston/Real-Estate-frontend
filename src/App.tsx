@@ -17,6 +17,8 @@ import LeaveType from './pages/Leave-Types.tsx';
 import CNPS from './pages/CNPS.tsx';
 import Contract from './pages/Contract.tsx';
 import ContractType from './pages/Contract-Types.tsx';
+import ForgotPassword from './pages/ForgotPassword.tsx';
+import ResetPassword from './pages/ResetPassword.tsx';
 import axios from 'axios';
 axios.defaults.withCredentials=true;
 axios.defaults.baseURL="http://localhost:5000";
@@ -43,6 +45,8 @@ function App() {
       <Route path='/cnps' element={<CNPS />} />
       <Route path='/contract' element={<Contract />} />
       <Route path='/contract-type' element={<ContractType />} />
+     <Route path="/forgot-password" element={<ForgotPassword />} />
+     <Route path="/reset-password/:token" element={<ResetPassword />} />
     </Routes>
     </BrowserRouter>
 </>
