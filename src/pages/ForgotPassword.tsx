@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/user/forgot-password", { email });
+      const res = await axios.post("http://127.0.0.1:8000/api/register/forgot-password", { email });
 
       Swal.fire({
         title: "Success",
@@ -40,7 +40,7 @@ const ForgotPassword = () => {
   return (
  <div className="bg-gray-900" style={{height:1000}}>
     <div className="flex flex-wrap justify-center">
-     <div className="login bg-gray-900" style={{marginTop:100}}>
+     <div className="login" style={{marginTop:100}}>
       <h2 className="text-center" style={{marginTop:30, marginBottom:30}}>Forgot Password</h2>
 
     <div className="flex flex-wrap justify-center">
@@ -51,7 +51,7 @@ const ForgotPassword = () => {
         onChange={(e) => setEmail(e.target.value)}
       style={{marginLeft:0}}/>
     </div>
-
+<br />
  <div className="flex flex-wrap justify-center" style={{marginBottom:50}}>
        <button onClick={handleForgotPassword}>
         Send Reset Link

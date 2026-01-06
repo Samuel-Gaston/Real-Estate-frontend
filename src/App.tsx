@@ -1,27 +1,25 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout.tsx';
-import Home from './pages/Home.tsx';
+import axios from 'axios';
+import Nav from './components/Nav.tsx';
+import House from './pages/House.tsx';
+import Land from './pages/Land.tsx';
 import Login from './pages/Login.tsx';
-import Dashboard from './pages/Dashboard.tsx';
-import Sites from './pages/Sites.tsx';
-import User from './pages/User.tsx';
-import Department from './pages/Department.tsx';
-import Position from './pages/Position.tsx';
-import Salary from './pages/Salary.tsx';
-import Personnel from './pages/Personnel.tsx';
-import Fine from './pages/Fine.tsx';
-import FineType from './pages/Fine-Types.tsx';
-import Leave from './pages/Leave.tsx';
-import LeaveType from './pages/Leave-Types.tsx';
-import CNPS from './pages/CNPS.tsx';
-import Contract from './pages/Contract.tsx';
-import ContractType from './pages/Contract-Types.tsx';
+import Register from './pages/Register.tsx';
+import Dashboard from './pages/dashboard/Dashboard.tsx';
+import Customer from './pages/dashboard/Customer.tsx';
+import Sales from './pages/dashboard/Sales.tsx';
+import Houses from './pages/dashboard/Houses.tsx';
+import Apartments from './pages/dashboard/Apartments.tsx';
+import Lands from './pages/dashboard/Lands.tsx';
+import Contact from './pages/Contact.tsx';
+import Apartment from './pages/Apartment.tsx';
 import ForgotPassword from './pages/ForgotPassword.tsx';
 import ResetPassword from './pages/ResetPassword.tsx';
-import axios from 'axios';
-axios.defaults.withCredentials=true;
-axios.defaults.baseURL="http://localhost:5000";
+// axios.defaults.withCredentials=true;
+axios.defaults.baseURL="http://127.0.0.1:8000";
+axios.defaults.headers.post["Content-Type"] = "application/json";
 function App() {
  
   return (
@@ -29,24 +27,21 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Layout />} />
-      <Route path='/' element={<Home />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/dashboard' element={<Dashboard/>} />
-      <Route path='/user' element={<User />} />
-      <Route path='/site' element={<Sites />} />
-      <Route path='/department' element={<Department />} />
-      <Route path='/position' element={<Position />} />
-      <Route path='/salary' element={<Salary />} />
-      <Route path='/personnel' element={<Personnel />} />
-      <Route path='/fine' element={<Fine />} />
-      <Route path='/fine-type' element={<FineType />} />
-      <Route path='/leave' element={<Leave />} />
-      <Route path='/leave-type' element={<LeaveType />} />
-      <Route path='/cnps' element={<CNPS />} />
-      <Route path='/contract' element={<Contract />} />
-      <Route path='/contract-type' element={<ContractType />} />
-     <Route path="/forgot-password" element={<ForgotPassword />} />
-     <Route path="/reset-password/:token" element={<ResetPassword />} />
+      <Route path='/nav' element={<Nav />} />
+      <Route path='/apartment' element={<Apartment />} />
+     <Route path='/house' element={<House />} />
+     <Route path='/land' element={<Land />} />
+     <Route path='/login' element={<Login />} />
+     <Route path='/register' element={<Register />} />
+     <Route path='/dashboard' element={<Dashboard />} />
+     <Route path='/customer' element={<Customer />} />
+     <Route path='/sales' element={<Sales />} />
+     <Route path='/houses' element={<Houses />} />
+     <Route path='/Apartments' element={<Apartments />} />
+     <Route path='/Lands' element={<Lands />} />
+     <Route path='/contact' element={<Contact />} />
+     <Route path='/forgot-password' element={<ForgotPassword />} />
+     <Route path='/reset-password' element={<ResetPassword />} />
     </Routes>
     </BrowserRouter>
 </>

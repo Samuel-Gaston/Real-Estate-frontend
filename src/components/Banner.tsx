@@ -1,53 +1,15 @@
-import './All.css';
 import { NavLink } from 'react-router-dom';
+import './All.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-const Nav = () => {
- const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
 
-
+const Banner = () => {
+     const [open, setOpen] = useState(false);
+    
   return (
     <div>
-{/* 
-   <Banner />
-  
-       <div className='Overall-Card'>
-        <br />
-         <h1 className='text-center font-bold' style={{marginTop:100, fontSize:20}}>Property-Type</h1>
-   <p className='' style={{marginLeft:50}}>Explore the available property types</p>
-    <ul>
-        <li><a><NavLink to="/nav">Apartment</NavLink></a></li>
-        <li><a><NavLink to="/house">House</NavLink></a></li>
-        <li><a href="">Land</a></li>
-    </ul>
- <p className='text-center' style={{color:'rgb(70, 148, 179)', marginTop:20}}>Available Apartments</p>
-     <div className='flex flex-wrap justify-center' style={{backgroundColor:'aliceblue'}}>
-        <br />
-        <div className='card'>
-       {DataApartment.map((d) =>(
-        <div key={d.id} className='card-item border-white' style={{border:'5px solid white',  backgroundColor:'white', marginBottom:60, width:'calc(100%)'}}>
-     <img src={d.image} width={300} height={150} />
-    <p className='font-bold text-center' style={{marginTop:10}}>{d.name}</p>
-    <p className='text-center' style={{fontSize:13, marginTop:5, marginBottom:5}}>{d.description}</p>
-    <p className='' style={{marginLeft:10}}>{d.location}</p>
-    <p className='text-center' style={{marginBottom:10}}>{d.price}</p>
-    <button onClick={GoTo}>Select</button>
-        </div>
-       ))}
-       </div>
-                </div>
-       </div>
-
-
-  <Chooses />
-
- <Banneras />
-
-<Footer /> */}
-  
-    <nav className="w-full bg-white shadow-md px-6 py-4" style={{padding:10, fontFamily:"'Times New Roman', Times, serif", position:'fixed'}}>
-    <div className="max-w-7xl mx-auto flex items-center justify-between">
+               <div className='banner'>
+      <nav className="w-full bg-white shadow-md px-6 py-4" style={{padding:10, fontFamily:"'Times New Roman', Times, serif", position:'fixed'}}>
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
 
       
         <div className="text-2xl font-bold text-[#4694B3]">
@@ -87,7 +49,7 @@ const Nav = () => {
               type="text"
               placeholder="Search"
               className="px-4 py-2 w-full md:w-48 focus:outline-none focus:ring-2 focus:ring-[#4694B3]"
-           style={{padding:2, textAlign:'center', backgroundColor:'rgb(70, 148, 179)', borderRadius:60, color:'white'}} />
+           style={{padding:2, textAlign:'center', backgroundColor:'rgb(70, 148, 179)', borderRadius:10, color:'white'}} />
           </li>
 
          
@@ -107,10 +69,39 @@ const Nav = () => {
 
       </div>
     </nav>
-     
+<br />
+<br />
+<br />
+<br /><br /><h1 className='text-center text-white text-5xl font-bold'>Discover Your Dream Property</h1><br /><br />
 
+  <div className='Overall-content flex flex-wrap justify-center'>
+         <div className="content flex flex-col sm:flex-row flex-wrap justify-center gap-6 p-4 bg-white">
+  
+  <div className="left w-full sm:w-[190px] text-center sm:text-left bg-white"  style={{padding:13, }}>
+    <h1 className="font-bold text-lg text-center" style={{marginTop:-10, marginBottom:5}}>Where</h1>
+    <p className="text-gray-500 text-center">Anywhere</p>
+  </div>
+
+  <div className="right w-full sm:w-[190px] text-center sm:text-left bg-white"  style={{padding:13, borderLeft:'1px solid black'}}>
+    <h1 className="font-bold text-lg text-center" style={{marginTop:-10, marginBottom:5}}>Property-Type</h1>
+    <p className="text-gray-500 text-center">Complete</p>
+  </div>
+
+  <div className="right w-full sm:w-[190px] text-center sm:text-left bg-white"  style={{padding:13, borderLeft:'1px solid black'}}>
+    <h1 className="font-bold text-lg text-center" style={{marginTop:-10, marginBottom:5}}>Price Range</h1>
+    <p className="text-gray-500 text-center">Min Price - Max Price</p>
+  </div>
+
+</div>
+  </div>
+
+<br />
+<br />
+  
+
+       </div>
     </div>
   )
 }
 
-export default Nav;
+export default Banner;

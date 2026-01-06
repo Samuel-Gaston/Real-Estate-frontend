@@ -1,80 +1,123 @@
+import { NavLink, useNavigate } from 'react-router-dom';
 import '../components/All.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import axios from 'axios';
-const Login = () => {
-  const navigate = useNavigate();
+import Swal from 'sweetalert2';
 
-  const [email, setemail] = useState('');
-  const [password, setpassword] = useState('');
+const Login = () => {
+
+  const navigate = useNavigate();
 
   const GoToForgotPassword = () =>{
     navigate("/forgot-password");
   }
+   const [getAdmin, setgetAdmin] = useState([]);
+  const [LoginInfo, setLoginInfo] = useState({
+    email: "",
+    password: ""
+  });
 
+  const HandleData = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLoginInfo(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
 
-  const HandleSubmit = () =>{
-    if(!email || !password){
-        Swal.fire({
-           title: 'Error!',
-           text: 'Inputs are empty. Fill!',
-           icon: 'error',
-           confirmButtonText: 'OK',
-             confirmButtonColor:'var(--color-gray-950)'
-             })
-    }
-    else{
-      axios.post("http://localhost:5000/user/auth", {email, password}).then((res) =>{   
-Swal.fire({
-  title: 'Login successfully!',
-  text: res.data.msg,
-  icon: 'success',
-  confirmButtonText: 'OK',
-  confirmButtonColor: 'var(--color-gray-950)',
-})
-
-       navigate("/Dashboard");
-      }).catch((error) => Swal.fire({
-        title:'Error!',
-        text: error.response.data.msg,
-        icon:'error',
-        confirmButtonText:'OK',
-        confirmButtonColor:'var(--color-gray-950)'
-        
-      }));
-   
-    }
+const HandleSubmit = async () => {
+  if (!LoginInfo.email || !LoginInfo.password) {
+    Swal.fire({
+      title: 'Error!',
+      text: 'Please fill all fields',
+      icon: 'error',
+      confirmButtonColor: 'rgb(70, 148, 179)'
+    });
+    return;
   }
+
+  try {
+    const res = await axios.post(
+      'http://127.0.0.1:8000/api/login',
+      LoginInfo
+    );
+
+    // Save token
+    localStorage.setItem('token', res.data.token);
+
+    Swal.fire({
+      title: 'Success!',
+      text: 'Login successful',
+      icon: 'success',
+      confirmButtonColor: 'rgb(70, 148, 179)'
+    });
+
+    // 🔥 ADMIN CHECK
+    if (
+      LoginInfo.email === "admin@gmail.com" &&
+      LoginInfo.password === "admin123"
+    ) {
+      navigate("/dashboard");
+    } else {
+      navigate("/contact");
+    }
+
+  } catch (error: any) {
+    Swal.fire({
+      title: 'Login Failed!',
+      text: error.response?.data?.message || 'Invalid credentials',
+      icon: 'error',
+      confirmButtonColor: 'rgb(70, 148, 179)'
+    });
+  }
+};
+
+
   return (
-    <div className='bg-gray-900'>
-      <div className='flex flex-wrap justify-center'>
-        <div className='login bg-gray-900'>
-          <p className='text-white'>Sign-In</p>
-          <p style={{marginLeft:10, fontSize:14}} >Authenticate yourself!</p>
+    <div>
+      <div className='Overall-Login flex flex-wrap justify-center'>
+        <div className='login'>
           <br />
-          <label style={{marginTop:6}} htmlFor='email' >Username/Email</label>
+          <h1 className='text-center font-bold'>Sign-In</h1>
+          <p className='text-center'>Please confirm your identity!</p>
           <br />
-        <div className='flex flex-wrap justify-center'>
-        <input type='text' placeholder='username/email...' onChange={(e) => setemail(e.target.value)} />
+
+          <label>Email</label>
+          <div className='flex flex-wrap justify-center'>
+            <input
+              type="email"
+              name="email"
+              placeholder='samuelgaston@gmail.com'
+              onChange={HandleData}
+            />
+          </div>
+
+          <br />
+          <label>Password</label>
+          <div className='flex flex-wrap justify-center'>
+            <input
+              type="password"
+              name="password"
+              placeholder='*******'
+              onChange={HandleData}
+            />
+          </div>
+          <p style={{marginLeft:30, marginTop:9}}>Forgot Password <a onClick={GoToForgotPassword} style={{color:'rgb(70, 148, 179)', cursor:'pointer'}}>Click here</a></p>
+
+          <br />
+          <div className='flex flex-wrap justify-center'>
+            <button onClick={HandleSubmit}>Submit</button>
+          </div>
+
+          <p style={{ marginBottom: 20, textAlign: 'center' }}>
+            Don't have an account ?
+            <NavLink to="/register" style={{ fontWeight: 'bold', color: 'black' }}>
+              {' '}Register
+            </NavLink>
+          </p>
         </div>
-          <br />
-           <label htmlFor='password' >Password</label>
-          <br />
-        <div className='flex flex-wrap justify-center'>
-            <input type='password' placeholder='password...' onChange={(e) => setpassword(e.target.value)} />
-        </div>
-        
-    <div className='flex flex-wrap justify-center' style={{marginTop:10}}>
-      <button onClick={HandleSubmit}>Submit</button>
       </div>
-    <p style={{fontSize:14}}>Forgot Password ? <a onClick={GoToForgotPassword} style={{color:'orange', cursor:'pointer'}}>Click here</a></p>
-     <br />
-      </div>
-      </div>
-      
     </div>
-  )
-}
+  );
+};
 
 export default Login;

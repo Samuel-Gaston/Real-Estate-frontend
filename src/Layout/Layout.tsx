@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import Nav from '../components/Nav.tsx';
+// import Nav from '../components/Nav.tsx';
+import Apartment from '../pages/Apartment.tsx';
 const layout = () => {
   return (
     <div>
-        <Nav />
+      <Apartment />
         <Outlet />
     </div>
   )
