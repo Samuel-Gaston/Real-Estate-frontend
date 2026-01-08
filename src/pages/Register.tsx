@@ -64,7 +64,7 @@ const Register = () => {
         })
   }
    else{
-   axios.post("/api/register", {name: RegisterInfo.name,email: RegisterInfo.email,password: RegisterInfo.password, }).then((res)  =>{
+   axios.post("/api/register", {name: RegisterInfo.name,email: RegisterInfo.email,password: RegisterInfo.password, }).then(()  =>{
    Swal.fire({
       title: 'Registration successful!',
       text: 'You have successfully signed up.',

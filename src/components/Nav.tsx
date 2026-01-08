@@ -1,50 +1,14 @@
 import './All.css';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 const Nav = () => {
  const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
+
 
 
   return (
     <div>
-{/* 
-   <Banner />
-  
-       <div className='Overall-Card'>
-        <br />
-         <h1 className='text-center font-bold' style={{marginTop:100, fontSize:20}}>Property-Type</h1>
-   <p className='' style={{marginLeft:50}}>Explore the available property types</p>
-    <ul>
-        <li><a><NavLink to="/nav">Apartment</NavLink></a></li>
-        <li><a><NavLink to="/house">House</NavLink></a></li>
-        <li><a href="">Land</a></li>
-    </ul>
- <p className='text-center' style={{color:'rgb(70, 148, 179)', marginTop:20}}>Available Apartments</p>
-     <div className='flex flex-wrap justify-center' style={{backgroundColor:'aliceblue'}}>
-        <br />
-        <div className='card'>
-       {DataApartment.map((d) =>(
-        <div key={d.id} className='card-item border-white' style={{border:'5px solid white',  backgroundColor:'white', marginBottom:60, width:'calc(100%)'}}>
-     <img src={d.image} width={300} height={150} />
-    <p className='font-bold text-center' style={{marginTop:10}}>{d.name}</p>
-    <p className='text-center' style={{fontSize:13, marginTop:5, marginBottom:5}}>{d.description}</p>
-    <p className='' style={{marginLeft:10}}>{d.location}</p>
-    <p className='text-center' style={{marginBottom:10}}>{d.price}</p>
-    <button onClick={GoTo}>Select</button>
-        </div>
-       ))}
-       </div>
-                </div>
-       </div>
 
-
-  <Chooses />
-
- <Banneras />
-
-<Footer /> */}
   
     <nav className="w-full bg-white shadow-md px-6 py-4" style={{padding:10, fontFamily:"'Times New Roman', Times, serif", position:'fixed'}}>
     <div className="max-w-7xl mx-auto flex items-center justify-between">

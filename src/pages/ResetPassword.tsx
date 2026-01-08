@@ -7,7 +7,7 @@ import '../components/All.css';
 const ResetPassword = () => {
   const { token } = useParams<{ token: string }>();
   const [searchParams] = useSearchParams();
-  const email = searchParams.get("email"); // <-- read email from query
+  const email = searchParams.get("email");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
 
@@ -29,8 +29,8 @@ const ResetPassword = () => {
       });
 
       Swal.fire("Success", "Password reset successful", "success");
-      setPassword(""); // Clear input
-      navigate("/login"); // Go back to login
+      setPassword("");
+      navigate("/login"); 
     } catch (error: any) {
       Swal.fire(
         "Error",

@@ -3,7 +3,6 @@ import Banner from '../components/Banner';
 import Banneras from '../components/Banneras';
 import Chooses from '../components/Chooses';
 import Footer from '../components/Footer';
-import { DataLand } from '../assets/Data';
 import { NavLink } from 'react-router-dom';
 import FAQs from '../components/FAQs';
 import { useNavigate } from 'react-router-dom';

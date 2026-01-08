@@ -6,7 +6,7 @@ const Sidebar = () => {
         <ul>
             <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
            <li><NavLink to="/customer">Customers</NavLink></li>
-           {/* <li><NavLink to="/sales">Sales</NavLink></li> */}
+           
             <li><NavLink to="/houses">Houses</NavLink></li>
             <li><NavLink to="/Apartments">Apartments</NavLink></li>
              <li><NavLink to="/Lands">Land</NavLink></li>

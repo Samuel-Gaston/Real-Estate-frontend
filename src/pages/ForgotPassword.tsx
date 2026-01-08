@@ -1,11 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 import '../components/All.css'
 const ForgotPassword = () => {
   const [email, setEmail] = useState<string>("");
-  const navigate = useNavigate();
+ 
 
   const handleForgotPassword = async () => {
     if (!email) {

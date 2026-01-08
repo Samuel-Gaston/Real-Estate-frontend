@@ -17,7 +17,6 @@ import Contact from './pages/Contact.tsx';
 import Apartment from './pages/Apartment.tsx';
 import ForgotPassword from './pages/ForgotPassword.tsx';
 import ResetPassword from './pages/ResetPassword.tsx';
-// axios.defaults.withCredentials=true;
 axios.defaults.baseURL="http://127.0.0.1:8000";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 function App() {

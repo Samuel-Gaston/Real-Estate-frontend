@@ -1,7 +1,5 @@
 import '../components/All.css'
-// import { ToastContainer, toast } from 'react-toastify';
 import emailjs from  "@emailjs/browser";
-// import { useInView } from 'react-intersection-observer';
 import {motion} from 'framer-motion';
 import { useState } from 'react';
 import Nav from '../components/Nav';
@@ -119,12 +117,6 @@ const Contact = () => {
        viewport={{once:false, amount:0.5}}
         transition={{ duration: 0.5}}/>
 
-           {/* <motion.input type='text' placeholder='Property Type' value={phone} onChange={(e) => setphone(e.target.value)} required 
-           variants={variants}
-        initial="hidden"
-       whileInView= "visible"
-       viewport={{once:false, amount:0.5}}
-        transition={{ duration: 0.5}}/> */}
 
         <motion.select name="propertType" id="" value={propertyName} onChange={(e) => setpropertyName(e.target.value)} 
          variants={variants}

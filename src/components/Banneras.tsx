@@ -20,10 +20,7 @@ const Banneras = () => {
 
       <div className='flex flex-wrap justify-center'>
   <div className='nice border-white flex flex-wrap justify-center text-center' style={{marginTop:60, padding:20}}>
-          {/* <div className='left-nice'>
-             <img id='' src='../../public/hey.jpg' alt='' width={300} height={300} />
-
-          </div> */}
+        
           <div className='right-nice'>
            <h4 style={{fontSize:20, color:'rgb(70, 148, 179) ', fontWeight:'bold',}}>Coming Soon</h4>
            <h4 style={{fontWeight:'bold', color:'white', fontSize:30}}>Explore Your Next Apartment with the aid of Contact Form</h4>

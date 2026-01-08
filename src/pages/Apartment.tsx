@@ -1,7 +1,6 @@
 import '../components/All.css'
 import { NavLink } from 'react-router-dom';
 import Chooses from '../components/Chooses';
-import { DataApartment } from '../assets/Data';
 import Banner from '../components/Banner';
 import Banneras from '../components/Banneras';
 import Footer from '../components/Footer';

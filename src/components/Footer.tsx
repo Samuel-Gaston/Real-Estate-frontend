@@ -1,18 +1,9 @@
 import './All.css';
-// import { FaFacebook } from "react-icons/fa";
-// import { AiFillApple } from "react-icons/ai";
-// import { IoLogoGooglePlaystore } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosMusicalNotes } from "react-icons/io";
 import { MdAddIcCall } from "react-icons/md";
 import { FiClock } from "react-icons/fi";
 import { AiOutlineCopyright } from "react-icons/ai";
-// import { RiVisaLine } from "react-icons/ri";
-// import { FaCcPaypal } from "react-icons/fa";
-// import { IoCall } from "react-icons/io5";
-// import { AiFillTwitterCircle } from "react-icons/ai";
-// import { FaInstagramSquare } from "react-icons/fa";
-// import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 const Footer = () => {
         const variants = {

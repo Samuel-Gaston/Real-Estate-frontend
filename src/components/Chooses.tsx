@@ -1,7 +1,7 @@
 import './All.css';
 import { FaHome } from "react-icons/fa";
 import { MdBusinessCenter } from "react-icons/md";
-import { FaCogs, FaBrain, FaLightbulb } from "react-icons/fa";
+import { FaBrain} from "react-icons/fa";
 const Chooses = () => {
   return (
     <div>

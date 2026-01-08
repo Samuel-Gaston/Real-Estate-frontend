@@ -8,10 +8,8 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const GoToForgotPassword = () =>{
-    navigate("/forgot-password");
-  }
-   const [getAdmin, setgetAdmin] = useState([]);
+
+  
   const [LoginInfo, setLoginInfo] = useState({
     email: "",
     password: ""
@@ -41,7 +39,7 @@ const HandleSubmit = async () => {
       LoginInfo
     );
 
-    // Save token
+  
     localStorage.setItem('token', res.data.token);
 
     Swal.fire({
@@ -51,7 +49,7 @@ const HandleSubmit = async () => {
       confirmButtonColor: 'rgb(70, 148, 179)'
     });
 
-    // 🔥 ADMIN CHECK
+
     if (
       LoginInfo.email === "admin@gmail.com" &&
       LoginInfo.password === "admin123"
@@ -101,9 +99,7 @@ const HandleSubmit = async () => {
               onChange={HandleData}
             />
           </div>
-          <p style={{marginLeft:30, marginTop:9}}>Forgot Password <a onClick={GoToForgotPassword} style={{color:'rgb(70, 148, 179)', cursor:'pointer'}}>Click here</a></p>
-
-          <br />
+         <br />
           <div className='flex flex-wrap justify-center'>
             <button onClick={HandleSubmit}>Submit</button>
           </div>
