@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BsFillTrash3Fill } from "react-icons/bs";
 import Sidebar from '../../components/Sidebar.tsx';
-import { useNavigate } from 'react-router-dom';
+
 import Swal from 'sweetalert2';
 
 type Land = {
@@ -17,7 +17,7 @@ type Land = {
 }
 
 const Lands = () => {
-  const navigate = useNavigate();
+
 
  
   const [showModal, setShowModal] = useState(false);

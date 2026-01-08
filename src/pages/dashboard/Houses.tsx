@@ -5,7 +5,6 @@ import axios from 'axios';
 import { BsFillTrash3Fill } from "react-icons/bs";
 import Sidebar from '../../components/Sidebar.tsx';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
 
 type House = {
   id: number;
@@ -17,9 +16,9 @@ type House = {
 }
 
 const Houses = () => {
-  const navigate = useNavigate();
 
-  // Modal and form states
+
+  
   const [showModal, setShowModal] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [editId, setEditId] = useState<number | null>(null);
@@ -32,7 +31,7 @@ const Houses = () => {
 
   const [houses, setHouses] = useState<House[]>([]);
 
-  // Fetch all houses
+  
   const getAllHouses = () => {
     axios.get("http://localhost:8000/api/houses")
       .then((res) => setHouses(res.data))
@@ -43,7 +42,7 @@ const Houses = () => {
     getAllHouses();
   }, []);
 
-  // Add house
+ 
   const handleSubmit = () => {
     if (!name || !price || !description || !file) {
       Swal.fire({
@@ -79,7 +78,7 @@ const Houses = () => {
       .catch(err => console.log(err));
   }
 
-  // Update house
+ 
   const handleUpdate = () => {
     if (!name || !price || !description || !location) {
       Swal.fire({
@@ -115,7 +114,7 @@ const Houses = () => {
       .catch(err => console.log(err));
   }
 
-  // Delete house
+  
   const deleteHouse = (id: number) => {
     axios.delete(`http://localhost:8000/api/houses/${id}`)
       .then(() => {
@@ -130,7 +129,7 @@ const Houses = () => {
       .catch(err => console.log(err));
   }
 
-  // Reset form fields
+  
   const resetForm = () => {
     setIsEdit(false);
     setEditId(null);
@@ -154,7 +153,7 @@ const Houses = () => {
         <br /><br />
         <div className="bg-white rounded-xl shadow-lg p-6 mt-10 w-full max-w-4xl mx-auto border border-gray-100">
 
-          {/* Add / Edit Button */}
+        
           <div className="flex items-center justify-between mb-6">
             <button
               onClick={() => { resetForm(); setShowModal(true); }}
@@ -165,7 +164,7 @@ const Houses = () => {
             </button>
           </div>
 <br />
-          {/* Houses Table */}
+         
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
@@ -238,7 +237,7 @@ const Houses = () => {
             </table>
           </div>
 
-          {/* Modal */}
+       
 {showModal && (
   <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
     <div className="bg-white relative" style={{ width: '40%', borderRadius: 20, padding: 20 }}>

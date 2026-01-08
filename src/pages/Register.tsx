@@ -81,7 +81,7 @@ const Register = () => {
     if (errors.email) {
       Swal.fire({
         title: "Error!",
-        text: errors.email[0], // "The email has already been taken."
+        text: errors.email[0],
         icon: "error",
       });
     }

@@ -1,5 +1,5 @@
 import '../../components/All.css'
-import { FaUser, FaBoxOpen, FaIdBadge, FaBox, FaHashtag, FaPlus } from "react-icons/fa"
+import { FaUser,FaBox } from "react-icons/fa"
 import Sidebar from '../../components/Sidebar';
 import { useState, useEffect } from 'react';
 import { BsFillTrash3Fill } from "react-icons/bs";
@@ -39,7 +39,7 @@ const Customer = () => {
 
    const deleteCustomer = (id: number) => {
   axios.delete(`/api/register/${id}`)
-    .then(res => {
+    .then(() => {
       Swal.fire({
       title: 'Success!',
       text: 'You have successfully deleted this user.',
@@ -47,7 +47,7 @@ const Customer = () => {
       confirmButtonText: 'OK',
         confirmButtonColor:'rgb(70, 148, 179)'
       });
-      // Refresh users list
+      
       getAllCustomers();
     })
     .catch(err => {
@@ -79,11 +79,7 @@ const Customer = () => {
  <div className="bg-white rounded-xl shadow-lg p-6 mt-10 w-full max-w-4xl mx-auto border border-gray-100">
 
       <div className="flex items-center justify-between mb-6">
-        {/* <button
-     onClick={() => setShowModal(true)}
-     className="flex items-center gap-2  hover:bg-lime-700 text-white px-4 py-2 rounded-lg shadow-md transition"
-     style={{padding:10, cursor:'pointer', marginBottom:20, marginTop:10, backgroundColor:'limegreen'}}><FaPlus /> Add </button> 
-      */}
+   
      </div>
 <br />
 <br />

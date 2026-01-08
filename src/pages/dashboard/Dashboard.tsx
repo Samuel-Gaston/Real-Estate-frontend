@@ -11,7 +11,7 @@ const Dashboard = () => {
   const [houseCount, setHouseCount] = useState(0);
   const [landCount, setLandCount] = useState(0);
 
-  // Fetch counts from the backend
+  
   useEffect(() => {
     const fetchCounts = async () => {
       try {
@@ -48,30 +48,30 @@ const Dashboard = () => {
           <br />
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-6 text-center">
-            {/* Apartments Card */}
+            
             <div className="bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition-all border border-gray-100 cursor-pointer">
               <div className="flex flex-col items-center">
                 <FaBuilding className="text-4xl mb-3" style={{ color: 'rgb(70, 148, 179)' }} />
                 <h1 className="text-lg font-semibold text-gray-800">Apartments</h1>
-                {/* <p className="text-2xl font-bold mt-2">{apartmentCount}</p> */}
+                
               </div>
             </div>
 
-            {/* Houses Card */}
+          
             <div className="bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition-all border border-gray-100 cursor-pointer">
               <div className="flex flex-col items-center">
                 <FaHome className="text-4xl mb-3" style={{ color: 'rgb(70, 148, 179)' }} />
                 <h1 className="text-lg font-semibold text-gray-800">Houses</h1>
-                {/* <p className="text-2xl font-bold mt-2">{houseCount}</p> */}
+                
               </div>
             </div>
 
-            {/* Lands Card */}
+           
             <div className="bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition-all border border-gray-100 cursor-pointer">
               <div className="flex flex-col items-center">
                 <GiTreehouse className="text-4xl mb-3" style={{ color: 'rgb(70, 148, 179)' }} />
                 <h1 className="text-lg font-semibold text-gray-800">Lands</h1>
-                {/* <p className="text-2xl font-bold mt-2">{landCount}</p> */}
+             
               </div>
             </div>
           </div>
@@ -79,6 +79,10 @@ const Dashboard = () => {
           <ChatWidget />
         </div>
       </div>
+      <span className="hidden">
+  {apartmentCount} {houseCount} {landCount}
+</span>
+
     </div>
   )
 }

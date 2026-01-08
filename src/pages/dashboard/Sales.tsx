@@ -1,14 +1,8 @@
 import '../../components/All.css'
-import { FaUser, FaBoxOpen, FaIdBadge, FaBox, FaHashtag, FaPlus } from "react-icons/fa"
+import { FaUser, FaBox, } from "react-icons/fa"
 import Sidebar from '../../components/Sidebar';
 import { useState } from 'react';
-import { BsFillTrash3Fill } from "react-icons/bs";
-type Checkout = {
-  id:number;
-  name:string;
-  method:string;
-  date:string;
-}
+
 const Sales = () => {
           const [showModal, setShowModal] = useState(false)
   const [name, setName] = useState("")
@@ -22,7 +16,7 @@ const Sales = () => {
     setProduct("")
   }
 
-  const [Checkouts, setCheckouts] = useState<Checkout[]>([])
+ 
 
   return (
           <div className='dashboard'>
@@ -38,11 +32,7 @@ const Sales = () => {
  <div className="bg-white rounded-xl shadow-lg p-6 mt-10 w-full max-w-4xl mx-auto border border-gray-100">
 
       <div className="flex items-center justify-between mb-6">
-        {/* <button
-     onClick={() => setShowModal(true)}
-     className="flex items-center gap-2  hover:bg-lime-700 text-white px-4 py-2 rounded-lg shadow-md transition"
-     style={{padding:10, cursor:'pointer', marginBottom:20, marginTop:10, backgroundColor:'rgb(70, 148, 179)'}}><FaPlus /> Add </button>  */}
-     
+  
      </div>
      <br />
      <br />
@@ -75,22 +65,11 @@ const Sales = () => {
             </tr>
           </thead>
 
-          <tbody>
-            {Checkouts.map((check, index) => (
-              <tr key={check.id}className={`${ index % 2 === 0 ? "bg-gray-50" : "bg-white" } hover:bg-lime-50 transition-all duration-200`} >
-                <td  style={{padding:10}}  className="py-3 px-6 text-gray-700">{check.name}</td>
-                <td  style={{padding:10}}  className="py-3 px-6 text-gray-700">{check.method}</td>
-                 <td  style={{padding:10}}  className="py-3 px-6 text-gray-700">{check.date}</td>
-                <td  style={{padding:10}}  className="py-3 px-6 text-gray-700">
-                 <BsFillTrash3Fill className='text-red-500 cursor-pointer' size={20} />
-                </td>
-              </tr>
-            ))}
-          </tbody>
+      
         </table>
       </div>
 
-      {/* Modal */}
+     
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" >
           <div className="bg-white relative" style={{width:'calc(40% - 20px)', borderRadius:20}}>
@@ -162,6 +141,7 @@ const Sales = () => {
       )}
     </div>
             </div>
+           
         </div>
   )
 }

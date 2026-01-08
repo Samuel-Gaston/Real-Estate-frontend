@@ -61,7 +61,7 @@ useEffect(() =>{
           formData.append("location", location);
           formData.append("image", file);
     
-            const res = axios.post("http://localhost:8000/api/apartments", formData, 
+           axios.post("http://localhost:8000/api/apartments", formData, 
         {headers: { "Content-Type": "multipart/form-data" },
             }
           );
