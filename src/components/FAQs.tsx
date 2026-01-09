@@ -1,6 +1,11 @@
 import './All.css';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 const FAQs = () => {
+     const variants = {
+            hidden:{opacity:0, x:-100},
+            visible:{opacity:1, x:0}
+             }
               
             const faqs = [
       {
@@ -30,26 +35,39 @@ const FAQs = () => {
         <div className="w-full max-w-5xl mx-auto px-6 mt-24">
 
  
-  <h4
+  <motion.h4
     className="text-2xl font-bold text-[#4694B3]"
     style={{ marginTop: 100, textAlign: "center", marginBottom: 40 }}
-  >
+    variants={variants}
+        initial="hidden"
+       whileInView= "visible"
+       viewport={{once:false, amount:0.5}}
+        transition={{ duration: 0.5}}>
     Frequently Asked Questions
-  </h4>
+  </motion.h4>
 
   <div className="flex flex-col md:flex-row justify-between items-start gap-6 mb-10">
-    <p
+    <motion.p
       className="text-gray-600 max-w-2xl"
       style={{ marginLeft: 20, marginBottom: 30 }}
-    >
+     variants={variants}
+        initial="hidden"
+       whileInView= "visible"
+       viewport={{once:false, amount:0.5}}
+        transition={{ duration: 0.5}} >
       Find answers to common questions about HomeScope services, property listings,
       and the real estate process. We're here to provide clarity and assist you every
       step of the way.
-    </p>
+    </motion.p>
   </div>
 
  
-  <div className="space-y-4 flex flex-wrap justify-center">
+  <motion.div className="space-y-4 flex flex-wrap justify-center"
+    variants={variants}
+        initial="hidden"
+       whileInView= "visible"
+       viewport={{once:false, amount:0.5}}
+        transition={{ duration: 0.5}}>
     {faqs.map((faq, index) => (
       <div
         key={index}
@@ -94,7 +112,7 @@ const FAQs = () => {
         </div>
       </div>
     ))}
-  </div>
+  </motion.div>
 </div>
     </div>
   )

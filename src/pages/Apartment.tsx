@@ -93,9 +93,9 @@ setApartments(res.data)
         <p className="text-center" style={{ fontSize: 13, marginTop: 5, marginBottom: 5 }}>
           {d.description}
         </p>
-        <p style={{ marginLeft: 10 }}>{d.location}</p>
+        <p style={{ marginLeft: 10, textAlign:'center' }}>Location: {d.location}</p>
         <p className="text-center" style={{ marginBottom: 10 }}>
-          {d.price}
+          Price: {d.price} FCFA
         </p>
         <button onClick={GoTo}>Select</button>
       </div>

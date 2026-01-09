@@ -125,7 +125,7 @@ const Register = () => {
     <div className='right-login' style={{marginLeft:5}}>
     <label htmlFor="Email">Email</label>
     <br />
-    <input type="email" name="email" id="" placeholder='samuelgaston@gmail.com' onChange={(e) => HandleData(e)}/>
+    <input type="email" name="email" id="" placeholder='example@gmail.com' onChange={(e) => HandleData(e)}/>
     <br /><br />
     <label htmlFor="Confirmed_Password">Confirmed_Password</label>
     <br />

@@ -4,10 +4,13 @@ import { useState } from 'react';
 
 const Banner = () => {
      const [open, setOpen] = useState(false);
+        
+           
     
   return (
     <div>
-               <div className='banner'>
+               <div className='banner'
+         >
       <nav className="w-full bg-white shadow-md px-6 py-4" style={{padding:10, fontFamily:"'Times New Roman', Times, serif", position:'fixed'}}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 

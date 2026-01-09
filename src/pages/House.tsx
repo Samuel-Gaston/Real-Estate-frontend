@@ -8,7 +8,7 @@ import FAQs from '../components/FAQs';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FaSpinner } from "react-icons/fa";
-
+import { motion } from 'framer-motion';
 import axios from 'axios';
 type House = {
   id:number;
@@ -19,6 +19,10 @@ type House = {
   price:string;
 }
 const House = () => {
+   const variants = {
+            hidden:{opacity:0, x:-100},
+            visible:{opacity:1, x:0}
+             }
   
   const navigate = useNavigate();
   
@@ -49,13 +53,28 @@ const House = () => {
 
     <div id='Apartment' className='Overall-Card'>
     <br />
-    <h1 className='text-center font-bold' style={{marginTop:100, fontSize:20}}>Property-Type</h1>
-    <p className='' style={{marginLeft:50}}>Explore the available property types</p>
-    <ul>
+    <motion.h1 className='text-center font-bold' style={{marginTop:100, fontSize:20}}
+      variants={variants}
+        initial="hidden"
+       whileInView= "visible"
+       viewport={{once:false, amount:0.5}}
+        transition={{ duration: 0.5}}>Property-Type</motion.h1>
+    <motion.p className='' style={{marginLeft:50}}
+      variants={variants}
+        initial="hidden"
+       whileInView= "visible"
+       viewport={{once:false, amount:0.5}}
+        transition={{ duration: 0.5}}>Explore the available property types</motion.p>
+    <motion.ul
+      variants={variants}
+        initial="hidden"
+       whileInView= "visible"
+       viewport={{once:false, amount:0.5}}
+        transition={{ duration: 0.5}}>
     <li><a><NavLink to="/apartment">Apartment</NavLink></a></li>
     <li><a><NavLink to="/house">House</NavLink></a></li>
     <li><a><NavLink to="/land">Land</NavLink></a></li>
-    </ul>
+    </motion.ul>
     <p className='text-center' style={{color:'rgb(70, 148, 179)', marginTop:20}}>Available Houses</p>
     <div className='flex flex-wrap justify-center' style={{backgroundColor:'aliceblue'}}>
     <br />
@@ -94,9 +113,9 @@ const House = () => {
         <p className="text-center" style={{ fontSize: 13, marginTop: 5, marginBottom: 5 }}>
           {d.description}
         </p>
-        <p style={{ marginLeft: 10 }}>{d.location}</p>
+        <p style={{ marginLeft: 10, textAlign:'center' }}>Location: {d.location}</p>
         <p className="text-center" style={{ marginBottom: 10 }}>
-          {d.price}
+          Price: {d.price} FCFA
         </p>
         <button onClick={GoTo}>Select</button>
       </div>

@@ -84,7 +84,7 @@ const HandleSubmit = async () => {
             <input
               type="email"
               name="email"
-              placeholder='samuelgaston@gmail.com'
+              placeholder='example@gmail.com'
               onChange={HandleData}
             />
           </div>
